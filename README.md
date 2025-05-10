@@ -1,11 +1,10 @@
 # AZ-204 - Guia de Estudo
-Este repositório foi criado com base nos meus estudos durante a preparação para a certificação Microsoft AZ-204. Ele reúne um guia prático e objetivo, com o intuito de ajudar outras pessoas a se prepararem de forma eficiente para o exame.
-
-# Desenvolvendo Soluções para Microsoft Azure (AZ-204)
 
 ## Resumo Rápido (TL;DR)
 
-Este repositório serve como guia de estudos para a certificação **AZ-204: Developing Solutions for Microsoft Azure**. Abaixo estão os tópicos cobrados no exame, distribuídos por área de conhecimento.
+Este repositório foi criado com base nos meus estudos durante a preparação para a certificação Microsoft AZ-204. Ele reúne um guia prático e objetivo, com o intuito de ajudar outras pessoas a se prepararem de forma eficiente para o exame. Abaixo estão os tópicos cobrados no exame, distribuídos por área de conhecimento.
+
+# Desenvolvendo Soluções para Microsoft Azure (AZ-204)
 
 ## 🔷 1. Desenvolver soluções de computação no Azure (25–30%)
 
