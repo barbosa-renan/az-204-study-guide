@@ -12,6 +12,6 @@
 
 6. Hands On
 
-   - Verifique todos os exemplos de código e tente refazê-los: [Github](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure)
+   - Verifique todos os exemplos de código nos Labs e execícios e tente refazê-los: [Github](https://github.com/MicrosoftLearning/AZ-204-DevelopingSolutionsforMicrosoftAzure)
    - Navegue e tenha familiariade com o Azure Portal
    - Aprenda a criar os recursos através do Power Shell e Azure CLI
