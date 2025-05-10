@@ -6,7 +6,7 @@ Este repositório foi criado com base nos meus estudos durante a preparação pa
 
 # Desenvolvendo Soluções para Microsoft Azure (AZ-204)
 
-## 🔷 1. Desenvolver soluções de computação no Azure (25–30%)
+## 🧑‍💻 1. Desenvolver soluções de computação no Azure (25–30%)
 
 ### ▸ Implementar soluções conteinerizadas
 
@@ -30,7 +30,7 @@ Este repositório foi criado com base nos meus estudos durante a preparação pa
 - Implementar input e output bindings
 - Implementar triggers com operações de dados, timers e webhooks
 
-## 🟦 2. Desenvolver para armazenamento no Azure (15–20%)
+## 🗄️ 2. Desenvolver para armazenamento no Azure (15–20%)
 
 ### ▸ Desenvolver soluções que utilizam Azure Cosmos DB
 
@@ -117,13 +117,13 @@ Este repositório foi criado com base nos meus estudos durante a preparação pa
 - [Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/)
 - [Azure Queue Storage](https://docs.microsoft.com/en-us/azure/storage/queues/)
 
-## 📌 Documentação das APIs
+## 📖 Documentação das APIs
 
 - [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)
 - [.NET API](https://learn.microsoft.com/en-us/dotnet/api/)
 - [PowerShell](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest)
 
-## 📝 Preparação para o Exame
+## 💪 Preparação para o Exame
 
 - [Simulador do Exame](https://aka.ms/examdemo)
 - [Avaliações Práticas Microsoft](https://learn.microsoft.com/en-us/certifications/exams/az-204/practice/assessment?assessment-type=practice&assessmentId=35)
