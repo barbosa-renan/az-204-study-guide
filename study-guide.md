@@ -2,6 +2,7 @@
 
 1. Desenvolver soluções de computação no Azure (25–30%)
    - [Visão Geral - Soluções de Computação no Azure](./Material/compute-solutions-overview.md)
+   - [Containers](./Material/containers.md)
 
 3. Desenvolver para armazenamento no Azure (15–20%)
 
