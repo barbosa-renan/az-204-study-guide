@@ -39,6 +39,54 @@ Seviço baseado em docker que realiza o armazenamento e gestão de imagens de co
      - Suporte a imagens tanto de Windows quanto de Linux. 
    - Namespaces de Repositórios: Permite o compartilhamento de um registro entre grupos ou equipes, com suporte a namespaces aninhados para isolamento. 
    - Criação de Imagens: Oferece suporte à criação automatizada de imagens de contêineres com o comando `az acr build`.
+
+#### Criando um Container Registry com Azure CLI
+Instalar Azue CLI: https://learn.microsoft.com/pt-br/cli/azure/?view=azure-cli-latest
+
+`curl -L https://aka.ms/InstallAzureCli | bash`
+
+```sh
+az login
+resourceGroup=rg-myapp-dev-eus
+# Doc ACR SKUs: https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-skus
+
+# O parâmetro --sku define o plano de uso:
+#   Basic    → Aproximadamente 10GB de armazenamento
+#   Standard → Aproximadamente 100GB (recomendado para uso geral e produção)
+#   Premium  → Até 500GB e inclui recursos avançados como:
+#             - Operações simultâneas em grande volume
+#             - Link privado (Private Link)
+#             - Gerenciamento de chaves personalizadas (CMK)
+#             - Assinatura de imagens com verificação de confiança
+
+# Atenção ao limite de requisições: se excedido, o ACR pode retornar erro HTTP 429 (throttling).
+#    Nesses casos, implemente retry automático ou reduza a frequência das chamadas.
+
+# Parâmetro opcional: --default-action {Allow, Deny}
+#   Define o comportamento padrão de acesso quando não há regras explícitas.
+
+# Para alta disponibilidade, é possível habilitar redundância entre zonas:
+#   --zone-redundancy {Disabled, Enabled}
+#   Isso garante replicação entre no mínimo 3 zonas distintas (exige VNet e subnet configuradas).
+#   https://learn.microsoft.com/pt-br/azure/container-registry/zone-redundancy
+
+$registryName=acrmyappdeveus
+az acr create --resource-group $resourceGroup --name $registryName --sku Standard
+
+# Login no Azure Container Registry (ACR)
+# https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-authentication
+
+# Formas de autenticação:
+# - Interativo: recomendado para desenvolvedores e testers realizarem push/pull manualmente
+# - Automatizado (sem interface): ideal para pipelines, usando Service Principal ou Managed Identity
+
+# Referência sobre permissões e roles: https://learn.microsoft.com/pt-br/azure/container-registry/container-registry-roles?tabs=azure-cli
+
+# 1) Login interativo via Entra ID:
+# Exige a execução do az login para gerar um token de acesso com validade de 3 horas, necessário renovar após expirar
+
+az acr login --name "$registryName"  # Executa o login no ACR usando o token atual
+```
   
   ### Azure Container Instances - ACI
    Utilizado para implantar containers rapidametne sem ter que tratar infraestrutura adicional
