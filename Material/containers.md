@@ -142,6 +142,37 @@ az acr login --name $registryName
 # New-AzRoleAssignment -ObjectId "<OBJECT_ID_DA_IDENTIDADE>" -RoleDefinitionName "AcrPull" -Scope "/subscriptions/<SUB>/resourceGroups/$resourceGroup/providers/Microsoft.ContainerRegistry/registries/$registryName"
 # New-AzRoleAssignment -ObjectId "<OBJECT_ID_DA_IDENTIDADE>" -RoleDefinitionName "AcrPush" -Scope "/subscriptions/<SUB>/resourceGroups/$resourceGroup/providers/Microsoft.ContainerRegistry/registries/$registryName"
 ```
+#### Push e Execução de Imagens no ACR
+```sh
+# Puxa a imagem hello-world do repositório público da Microsoft
+docker pull mcr.microsoft.com/hello-world
+
+# Define variáveis
+repository=demo
+imageName=hello-world
+tag=v1
+
+# Marca a imagem com o endpoint do ACR
+docker tag mcr.microsoft.com/hello-world $registryName.azurecr.io/$repository/$imageName:$tag
+
+# Faz push da imagem para o ACR
+docker push $registryName.azurecr.io/$repository/$imageName:$tag
+```
+```sh
+# Executar localmente (puxando do ACR)
+docker run $registryName.azurecr.io/$repository/$imageName:$tag
+
+# Alternativa: executar diretamente via ACR Task
+az acr run --registry $registryName \
+  --cmd '$registryName.azurecr.io/$repository/$imageName:$tag' /dev/null
+```
+```sh
+# Lista todos os repositórios
+az acr repository list --name $registryName --output table
+
+# Lista todas as tags de um repositório específico
+az acr repository show-tags --name $registryName --repository $repository --output table
+```
 
   ### Azure Container Instances - ACI
    Utilizado para implantar containers rapidametne sem ter que tratar infraestrutura adicional
